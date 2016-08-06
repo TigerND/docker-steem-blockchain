@@ -35,7 +35,7 @@ RUN mkdir -p /witness_node_data_dir
 
 ADD config.ini /witness_node_data_dir
 
-RUN /usr/local/bin/steemd --replay-blockchain-and-exit
+RUN /usr/local/bin/steemd --replay-blockchain-and-exit || /bin/true
 
 VOLUME ["/witness_node_data_dir"]
 
