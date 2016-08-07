@@ -29,7 +29,7 @@ RUN mkdir -p /root/src && \
     ( \
         cd /root/src ;\
         rm -Rf steem \
-    )
+    ) 
 
 RUN mkdir -p /steem
 
