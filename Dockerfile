@@ -31,12 +31,10 @@ RUN mkdir -p /root/src && \
         rm -Rf steem \
     )
 
-RUN mkdir -p /witness_node_data_dir
+RUN mkdir -p /steem
 
-ADD config.ini /witness_node_data_dir
+ADD config.ini /steem
 
-RUN /usr/local/bin/steemd --replay-blockchain-and-exit || /bin/true
-
-VOLUME ["/witness_node_data_dir"]
+RUN /usr/local/bin/steemd --data-dir /steem --resync-blockchain --startup-only || /bin/true
 
 CMD ["/bin/bash"]
